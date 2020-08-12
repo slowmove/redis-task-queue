@@ -4,3 +4,4 @@ tests
 .eslintrc.yml
 jest.config.js
 test.js
+testfiles
