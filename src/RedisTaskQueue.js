@@ -63,15 +63,19 @@ class RedisTaskQueue {
   async getStatus(jobId) {
     if (!jobId) return;
     const activeJobs = await this.list();
-    const isActive = activeJobs.find((j) => {
-      return JSON.parse(j).id === jobId;
-    });
-    if (isActive) return "active";
+    if (activeJobs && Array.isArray(activeJobs)) {
+      const isActive = activeJobs.find((j) => {
+        return JSON.parse(j).id === jobId;
+      });
+      if (isActive) return "active";
+    }
     const buriedJobs = await this.listBuried();
-    const isBuried = buriedJobs.find((j) => {
-      return JSON.parse(j).id === jobId;
-    });
-    if (isBuried) return "buried";
+    if (buriedJobs && Array.isArray(buriedJobs)) {
+      const isBuried = buriedJobs.find((j) => {
+        return JSON.parse(j).id === jobId;
+      });
+      if (isBuried) return "buried";
+    }
     return "completed";
   }
 }
