@@ -59,5 +59,20 @@ class RedisTaskQueue {
   async listBuried(queue = constants.QUEUE.FAILED) {
     return this.list(queue);
   }
+
+  async getStatus(jobId) {
+    if (!jobId) return;
+    const activeJobs = await this.list();
+    const isActive = activeJobs.find((j) => {
+      return JSON.parse(j).id === jobId;
+    });
+    if (isActive) return "active";
+    const buriedJobs = await this.listBuried();
+    const isBuried = buriedJobs.find((j) => {
+      return JSON.parse(j).id === jobId;
+    });
+    if (isBuried) return "buried";
+    return "completed";
+  }
 }
 module.exports = RedisTaskQueue;

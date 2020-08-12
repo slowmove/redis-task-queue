@@ -51,3 +51,7 @@ while (true) {
 - `getBuried(queue?)`
 - `hasBuried(queue?)`
 - `listBuried(queue?)`
+
+**Generic methods**
+
+- `getStatus(jobId)` returns the status, whether active, buried or completed.
