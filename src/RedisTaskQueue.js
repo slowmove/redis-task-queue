@@ -37,7 +37,7 @@ class RedisTaskQueue {
     return await this.redis.llen(queue);
   }
 
-  async listJobs(queue = constants.QUEUE.DEFAULT) {
+  async list(queue = constants.QUEUE.DEFAULT) {
     return this.redis.lrange(queue, 0, -1);
   }
 
@@ -57,7 +57,7 @@ class RedisTaskQueue {
   }
 
   async listBuried(queue = constants.QUEUE.FAILED) {
-    return this.listJobs(queue);
+    return this.list(queue);
   }
 }
 module.exports = RedisTaskQueue;
