@@ -3,12 +3,18 @@ Redis Task Queue
 
 Simplest possible implementation to put, pop and bury jobs with Redis as backend.
 
+## Install
+
+`npm install redis-task-queue`
+
+Requires a Redis instance to connect to.
+
 ## Usage
 
 ### Client
 
 ```js
-const RedisTaskQueue = require("RedisTaskQueue");
+const RedisTaskQueue = require("redis-task-queue");
 
 const payload = {
   lorem: "sit",
@@ -23,7 +29,7 @@ const jobId = await redisTaskQueue.add({ data: payload });
 ### Worker
 
 ```js
-const RedisTaskQueue = require("RedisTaskQueue");
+const RedisTaskQueue = require("redis-task-queue");
 
 const redisTaskQueue = new RedisTaskQueue();
 let currentJob = null;
