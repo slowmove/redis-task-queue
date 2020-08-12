@@ -1,6 +1,6 @@
 {
   "name": "redis-task-queue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simplest possible implementation to put, pop and bury jobs with Redis as backend.",
   "main": "index.js",
   "scripts": {
