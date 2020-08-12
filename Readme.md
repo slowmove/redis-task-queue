@@ -3,6 +3,8 @@ Redis Task Queue
 
 Simplest possible implementation to put, pop and bury jobs with Redis as backend.
 
+[![https://nodei.co/npm/redis-task-queue.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/redis-task-queue.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/redis-task-queue)
+
 ## Install
 
 `npm install redis-task-queue`
