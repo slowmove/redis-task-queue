@@ -38,7 +38,8 @@ class RedisTaskQueue {
   }
 
   async list(queue = constants.QUEUE.DEFAULT) {
-    return this.redis.lrange(queue, 0, -1);
+    const items = await this.redis.lrange(queue, 0, -1);
+    return items.map((item) => utils.jsonData(item));
   }
 
   async bury({ queue = constants.QUEUE.FAILED, data }) {
@@ -47,7 +48,7 @@ class RedisTaskQueue {
   }
 
   async getBuried(queue = constants.QUEUE.FAILED) {
-    const data = this.get(queue);
+    const data = await this.get(queue);
     logHelper.log(`Get buried object ${data.id} out of queue ${queue}`);
     return data;
   }
