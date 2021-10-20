@@ -19,6 +19,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "ioredis": "^4.17.3"
+    "ioredis": "^4.17.3",
+    "uuid": "^8.3.2"
   }
 }
