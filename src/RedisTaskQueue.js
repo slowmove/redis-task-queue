@@ -79,5 +79,9 @@ class RedisTaskQueue {
     }
     return "completed";
   }
+
+  disconnect() {
+    this.redis.disconnect();
+  }
 }
 module.exports = RedisTaskQueue;
