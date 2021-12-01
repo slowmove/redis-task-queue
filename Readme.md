@@ -63,3 +63,4 @@ while (true) {
 **Generic methods**
 
 - `getStatus(jobId)` returns the status, whether active, buried or completed.
+- `disconnect()` release your Redis connection
