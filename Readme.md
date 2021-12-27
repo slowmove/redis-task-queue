@@ -13,6 +13,24 @@ Requires a Redis instance to connect to.
 
 ## Usage
 
+You may set your redis connection configuration either by environment variables or in the construction options. Default it connects to a local default instance of redis (`127.0.0.1:6379`)
+
+**Possible environment variables**
+
+```bash
+REDIS_HOST = <default localhost>
+REDIS_PORT = <default 6379>
+REDIS_PASSWORD = <default empty>
+```
+
+```js
+const redisTaskQueue = new RedisTaskQueue({
+  port: 6379,
+  host: "127.0.0.1",
+  password: ""
+});
+```
+
 ### Client
 
 ```js

@@ -6,9 +6,9 @@ const utils = require("./helpers/utils");
 class RedisTaskQueue {
   constructor(options) {
     const defaultConfig = {
-      port: 6379,
-      host: "127.0.0.1",
-      password: "",
+      port: process.env.REDIS_PORT || 6379,
+      host: process.env.REDIS_HOST || "127.0.0.1",
+      password: process.env.REDIS_PASSWORD || "",
     };
     const config = options
       ? Object.assign({}, defaultConfig, options)
